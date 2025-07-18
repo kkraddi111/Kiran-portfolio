@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiran Raddi - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        console.log('Attempting to configure Tailwind. `tailwind` object:', window.tailwind);
+        tailwind.config = {
+          darkMode: 'class'
+        }
+        console.log('Tailwind configured successfully.');
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        console.log('Running initial theme-setting script.');
+        // Set theme before page render to prevent FOUC (Flash of Unstyled Content)
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            console.log('Initial theme set to: dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            console.log('Initial theme set to: light');
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-orange-50 to-amber-100 dark:from-gray-900 dark:to-orange-900 text-[#24292F] dark:text-white font-inter min-h-screen">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-orange-50/90 dark:bg-gray-900/90 border-b border-orange-200 dark:border-orange-800 backdrop-blur-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="assets/files/KiranRaddi_CV.pdf" class="bg-orange-500 px-4 py-2 rounded-lg hover:bg-orange-600 transition text-white">
+                    Download CV
+                </a>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#about" class="hover:text-orange-500 transition">About</a>
+                    <a href="#education" class="hover:text-orange-500 transition">Education</a>
+                    <a href="#experience" class="hover:text-orange-500 transition">Experience</a>
+                    <a href="#projects" class="hover:text-orange-500 transition">Projects</a>
+                    <a href="#contact" class="hover:text-orange-500 transition">Contact</a>
+                    <button id="theme-toggle-btn" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Toggle theme">
+                        <!-- Sun icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800 dark:hidden" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 14.95l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" />
+                        </svg>
+                        <!-- Moon icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block text-gray-100" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Toggle menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">About</a>
+                <a href="#education" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Education</a>
+                <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Experience</a>
+                <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Projects</a>
+                <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24">
+    <!-- Hero Section -->
+    <section class="py-16 flex flex-col items-center text-center">
+        <div class="profile-container mb-8">
+            <div class="relative w-48 h-48 rounded-full overflow-hidden glow-effect group">
+                <img src="assets/images/profile.jpg" alt="Kiran Raddi" class="w-full h-full object-cover animate-profile scale-110 object-top">
+                <div class="absolute inset-0 ring-2 ring-orange-400 dark:ring-orange-500 rounded-full group-hover:ring-4 transition-all duration-300"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-orange-500/20 dark:to-orange-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Hi 👋 I'm <span class="text-orange-500">Kiran Raddi</span>
+        </h1>
+        <div class="typewriter text-xl md:text-2xl font-medium text-orange-600 dark:text-orange-400 mb-6">
+            <span id="role" class="typing"></span>
+        </div>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-6xl backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-6 rounded-lg">
+            A passionate developer from Jamkhandi, Karnataka, dedicated to building innovative solutions
+            and constantly expanding my technical expertise in Web Development and Currently exploring Cloud Computing and Automation(n8n).
+        </p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-orange-600 dark:text-orange-400 flex items-center gap-2">
+            <span class="text-2xl">👤</span>About Me
+        </h2>
+        <div class="prose dark:prose-invert max-w-6xl w-full bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg backdrop-blur-sm shadow-xl">
+            <div class="space-y-6">
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">👨‍💻</span>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        I'm a passionate Full Stack Developer who loves turning ideas into reality through code. Currently pursuing my Master's in Computer Applications (MCA) at Basaveshwar Engineering College.
+                    </p>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">🎯</span>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        My focus areas include Web Development, Cloud Computing, and building user-friendly applications that solve real-world problems.
+                    </p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">🌱</span>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Currently exploring modern technologies like Next.js, Firebase, and AWS to enhance my development capabilities.
+                    </p>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">🤝</span>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Always open to collaborating on innovative projects and learning from fellow developers in the community.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-center">
+                <a href="https://github.com/kkraddi111" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105">
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-orange-600 dark:text-orange-400 flex items-center gap-2">
+            <span class="text-2xl">⚡</span>Skills & Expertise
+        </h2>
+        <div class="bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg shadow-xl backdrop-blur-sm w-full max-w-6xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- HTML -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-16 h-16" alt="HTML5">
+                        <span class="mt-2 font-medium">HTML5</span>
+                    </div>
+                </div>
+                <!-- CSS -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-16 h-16" alt="CSS3">
+                        <span class="mt-2 font-medium">CSS3</span>
+                    </div>
+                </div>
+                <!-- JavaScript -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-16 h-16" alt="JavaScript">
+                        <span class="mt-2 font-medium">JavaScript</span>
+                    </div>
+                </div>
+                <!-- React -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-16 h-16" alt="React">
+                        <span class="mt-2 font-medium">React</span>
+                    </div>
+                </div>
+                <!-- Python -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-16 h-16" alt="Python">
+                        <span class="mt-2 font-medium">Python</span>
+                    </div>
+                </div>
+                <!-- Django -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" class="w-16 h-16" alt="Django">
+                        <span class="mt-2 font-medium">Django</span>
+                    </div>
+                </div>
+                <!-- PHP -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" class="w-16 h-16" alt="PHP">
+                        <span class="mt-2 font-medium">PHP</span>
+                    </div>
+                </div>
+                <!-- SQL -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-16 h-16" alt="SQL">
+                        <span class="mt-2 font-medium">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-orange-600 dark:text-orange-400 flex items-center gap-2">
+            <span class="text-2xl">🎓</span>Education
+        </h2>
+        <div class="bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg shadow-xl backdrop-blur-sm w-full max-w-6xl transform hover:scale-[1.02] transition-transform duration-300">
+            <div class="space-y-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">👨‍🎓</span>
+                        <h3 class="text-xl font-semibold">Master of Computer Applications (MCA)</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">Basaveshwar Engineering College, Vidyagiri Bagalkot</p>
+                    <p class="text-gray-500">2023 - 2025</p>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">🎓</span>
+                        <h3 class="text-xl font-semibold">Bachelor of Computer Applications (BCA)</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">JSS STC ARTS AND COMM COLLEGE, BANAHATTI</p>
+                    <p class="text-gray-500">2020 - 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-orange-600 dark:text-orange-400 flex items-center gap-2">
+            <span class="text-2xl">💼</span>Experience
+        </h2>
+        <div class="bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg shadow-xl backdrop-blur-sm w-full max-w-6xl transform hover:scale-[1.02] transition-transform duration-300">
+            <div class="space-y-8">
+                <!-- Current Internship -->
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">🚀</span>
+                        <h3 class="text-xl font-semibold">Software Development Engineering Intern (Current)</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">Yuga Yatra Retail (OPC) Pvt. Ltd.</p>
+                    <p class="text-gray-500 mb-4">July 2025 - September 2025 (2 months) | Remote</p>
+                    
+                    <p class="font-medium mb-2">🎯 What I'm Building:</p>
+                    <ul class="space-y-2 list-none ml-4 text-gray-600 dark:text-gray-400">
+                        <li>🎨 Crafting next-generation web and mobile interfaces using Cursor AI</li>
+                        <li>🔐 Developing secure authentication systems through Firebase Studio</li>
+                        <li>✨ Creating visually compelling designs with Canva Pro</li>
+                        <li>🛍️ Optimizing e-commerce workflows for Amazon and Flipkart sellers</li>
+                        <li>🌐 Leading freelance projects on Upwork</li>
+                        <li>📊 Managing team coordination via Google Workspace</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <p class="font-medium mb-2">🔥 Tech Stack:</p>
+                        <p class="text-gray-600 dark:text-gray-400">Cursor AI, Firebase Studio, Canva Pro, Google Workspace, E-commerce APIs</p>
+                    </div>
+                </div>
+
+                <!-- Previous Internship -->
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">💻</span>
+                        <h3 class="text-xl font-semibold">Python Developer - Intern</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">Techciti Software Consulting Private Limited</p>
+                    <p class="text-gray-500 mb-4">December 2024 - January 2025 (2 months) | Bengaluru, Karnataka, India · Remote</p>
+                    
+                    <p class="italic text-gray-600 dark:text-gray-400 mb-4">🙏 Incredibly grateful for this foundational experience! Special thanks to the mentors and team at Techciti Software Consulting for guiding me through my first professional development journey.</p>
+                    
+                    <p class="font-medium mb-2">🎯 What I Accomplished:</p>
+                    <ul class="space-y-2 list-none ml-4 text-gray-600 dark:text-gray-400">
+                        <li>🏗️ Built a Cold Storage Management System using Python and Django</li>
+                        <li>💻 Created responsive UIs with HTML, CSS, and JavaScript</li>
+                        <li>🗄️ Designed database architecture with SQLite3</li>
+                        <li>🔧 Integrated Python libraries including Pillow and Widget-tweaks</li>
+                        <li>🤝 Collaborated with senior developers on production-ready solutions</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <p class="font-medium mb-2">🔥 Tech Stack:</p>
+                        <p class="text-gray-600 dark:text-gray-400">Python, Django, SQLite3, HTML/CSS/JavaScript, Pillow, Widget-tweaks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-orange-600 dark:text-orange-400 flex items-center gap-2">
+            <span class="text-2xl">🚀</span>Featured Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+            <!-- Crop Recommendation System -->
+            <article onclick="window.open('https://github.com/kkraddi111/Crop-recommendation-system', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
+                <div class="h-48 overflow-hidden">
+                    <img src="assets/images/project.png" alt="Crop Recommendation System" class="w-full h-full object-contain">
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">🌱</span>
+                        <h3 class="text-xl font-semibold">Crop Recommendation System</h3>
+                    </div>
+                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400">
+                        <li>🌾 Python-based system for optimal crop recommendations</li>
+                        <li>🤖 Machine learning algorithms for accurate suggestions</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Django</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">SQLite</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Calorie Tracker -->
+            <article onclick="window.open('https://github.com/kkraddi111/calorie-tracker', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
+                <div class="h-48 overflow-hidden">
+                    <img src="assets/images/project.png" alt="Calorie Tracker" class="w-full h-full object-contain">
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">🍽️</span>
+                        <h3 class="text-xl font-semibold">Calorie Tracker</h3>
+                    </div>
+                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400">
+                        <li>🥘 Specialized tracking for South-Indian dishes</li>
+                        <li>📊 Daily nutrition monitoring system</li>
+                        <li>👤 User profile management</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Django</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">SQLite3</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Quiz Management System -->
+            <article onclick="window.open('https://github.com/kkraddi111/Quiz-Management-System', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
+                <div class="h-48 overflow-hidden">
+                    <img src="assets/images/project.png" alt="Quiz Management System" class="w-full h-full object-contain">
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">📝</span>
+                        <h3 class="text-xl font-semibold">Quiz Management System</h3>
+                    </div>
+                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400">
+                        <li>📚 Comprehensive quiz management platform</li>
+                        <li>✍️ Quiz creation and assessment capabilities</li>
+                        <li>👨‍🏫 Multiple user role interfaces</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">PHP</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">MySQL</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">JavaScript</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="mt-8 flex justify-center">
+            <a href="https://github.com/kkraddi111?tab=repositories" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105">
+                View More Projects
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 flex flex-col items-center">
+        <h2 class="text-2xl font-bold mb-6 text-orange-600 dark:text-orange-400 flex items-center gap-2">
+            <span class="text-2xl">📬</span>Contact
+        </h2>
+        <div class="bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg shadow-xl backdrop-blur-sm w-full max-w-6xl transform hover:scale-[1.02] transition-transform duration-300">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📞</span>
+                    <p class="text-gray-600 dark:text-gray-400">+91 6361030122</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📧</span>
+                    <a href="mailto:ksraddi@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-orange-500">ksraddi@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">🔗</span>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/kkraddi111" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-orange-500 inline-flex items-center gap-2">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/kiran-raddi-69480b374/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-orange-500 inline-flex items-center gap-2">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="container mx-auto px-6 py-8 mt-16 border-t border-gray-200 dark:border-gray-800">
+    <div class="flex justify-between items-center">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+            © 2025 Kiran Raddi. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top hidden" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+</button>
+</body>
+</html>
