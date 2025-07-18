@@ -21,7 +21,7 @@ A modern, responsive portfolio website built with HTML, TailwindCSS, and JavaScr
 📝 Google Fonts (Inter)
 
 📂 Project Structure
-
+```
 portfolio/
 ├── index.html              Main HTML file
 ├── css/
@@ -35,7 +35,7 @@ portfolio/
     ├── icons/             Icon assets
     └── files/
         └── KiranRaddi_CV.pdf
-
+```
 ⚙️ Setup and Installation
 
 1️⃣ Clone this repository:
