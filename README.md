@@ -30,6 +30,11 @@ A modern, responsive portfolio website built with HTML, TailwindCSS, and JavaScr
 
 📝 Google Fonts (Inter)
 
+screenshot:
+
+<img width="1803" height="1015" alt="index" src="https://github.com/user-attachments/assets/888d0dc7-ec42-4384-8bb3-c37d577f440a" />
+
+
 📂 Project Structure
 ```
 portfolio/
