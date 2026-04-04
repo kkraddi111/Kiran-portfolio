@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     // Typing effect
-    const roles = ['Frontend Developer', 'Python Developer', 'Tech Enthusiastic'];
+    const roles = ['Python Developer', 'Data Analyst', 'AWS Intern'];
     let currentIndex = 0;
     const typeDelay = 200; // Consistent typing speed
     const pauseDelay = 4000; // Pause at the end of each word
