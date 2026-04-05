@@ -6,25 +6,17 @@
     <title>Kiran Raddi - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        console.log('Attempting to configure Tailwind. `tailwind` object:', window.tailwind);
-        tailwind.config = {
-          darkMode: 'class'
-        }
-        console.log('Tailwind configured successfully.');
+        tailwind.config = { darkMode: 'class' }
     </script>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
-        console.log('Running initial theme-setting script.');
-        // Set theme before page render to prevent FOUC (Flash of Unstyled Content)
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-            console.log('Initial theme set to: dark');
         } else {
             document.documentElement.classList.remove('dark');
-            console.log('Initial theme set to: light');
         }
     </script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-gradient-to-br from-orange-50 to-amber-100 dark:from-gray-900 dark:to-orange-900 text-[#24292F] dark:text-white font-inter min-h-screen">
     <!-- Header/Navigation -->
@@ -41,11 +33,9 @@
                     <a href="#projects" class="hover:text-orange-500 transition">Projects</a>
                     <a href="#contact" class="hover:text-orange-500 transition">Contact</a>
                     <button id="theme-toggle-btn" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Toggle theme">
-                        <!-- Sun icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800 dark:hidden" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 14.95l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" />
                         </svg>
-                        <!-- Moon icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block text-gray-100" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                         </svg>
@@ -71,6 +61,7 @@
     </header>
 
     <main class="container mx-auto px-6 pt-24">
+
     <!-- Hero Section -->
     <section class="py-16 flex flex-col items-center text-center">
         <div class="profile-container mb-8">
@@ -87,8 +78,7 @@
             <span id="role" class="typing"></span>
         </div>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-6xl backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-6 rounded-lg">
-            A passionate developer from Jamkhandi, Karnataka, dedicated to building innovative solutions
-            and constantly expanding my technical expertise in Web Development and Currently exploring Cloud Computing and Automation(n8n).
+            A passionate developer from Jamkhandi, Karnataka. Python developer with hands-on experience in AWS Cloud, Django, Flask, and building data-driven web applications.
         </p>
     </section>
 
@@ -102,34 +92,31 @@
                 <div class="flex items-start gap-3">
                     <span class="text-2xl">👨‍💻</span>
                     <p class="text-gray-600 dark:text-gray-400">
-                        I'm a passionate Full Stack Developer who loves turning ideas into reality through code. Currently pursuing my Master's in Computer Applications (MCA) at Basaveshwar Engineering College.
+                        I'm a passionate Python & Full Stack Developer who loves turning ideas into reality through code. Currently completing my Master's in Computer Applications (MCA) at Basaveshwar Engineering College (CGPA: 7.80).
                     </p>
                 </div>
-                
                 <div class="flex items-start gap-3">
-                    <span class="text-2xl">🎯</span>
+                    <span class="text-2xl">☁️</span>
                     <p class="text-gray-600 dark:text-gray-400">
-                        My focus areas include Web Development, Cloud Computing, and building user-friendly applications that solve real-world problems.
+                        My focus areas include Cloud Computing (AWS), Web Development with Django & Flask, and building intelligent applications powered by AI APIs.
                     </p>
                 </div>
-
                 <div class="flex items-start gap-3">
                     <span class="text-2xl">🌱</span>
                     <p class="text-gray-600 dark:text-gray-400">
-                        Currently exploring modern technologies like Next.js, Firebase, and AWS to enhance my development capabilities.
+                        Currently exploring AWS services (S3, Lambda, DynamoDB, SNS) with Boto3, and integrating AI capabilities like Google Gemini into full-stack projects.
                     </p>
                 </div>
-
                 <div class="flex items-start gap-3">
-                    <span class="text-2xl">🤝</span>
+                    <span class="text-2xl">🏆</span>
                     <p class="text-gray-600 dark:text-gray-400">
-                        Always open to collaborating on innovative projects and learning from fellow developers in the community.
+                        Certified in SQL (HackerRank, Jan 2026) and AWS Cloud Practitioner (Udemy, Sep 2025). Always open to collaborating on innovative projects.
                     </p>
                 </div>
             </div>
             <div class="mt-6 flex justify-center">
                 <a href="https://github.com/kkraddi111" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105">
-                    Learn More
+                    View GitHub
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
                     </svg>
@@ -145,34 +132,6 @@
         </h2>
         <div class="bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg shadow-xl backdrop-blur-sm w-full max-w-6xl">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- HTML -->
-                <div class="skill-badge group">
-                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-16 h-16" alt="HTML5">
-                        <span class="mt-2 font-medium">HTML5</span>
-                    </div>
-                </div>
-                <!-- CSS -->
-                <div class="skill-badge group">
-                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-16 h-16" alt="CSS3">
-                        <span class="mt-2 font-medium">CSS3</span>
-                    </div>
-                </div>
-                <!-- JavaScript -->
-                <div class="skill-badge group">
-                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-16 h-16" alt="JavaScript">
-                        <span class="mt-2 font-medium">JavaScript</span>
-                    </div>
-                </div>
-                <!-- React -->
-                <div class="skill-badge group">
-                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-16 h-16" alt="React">
-                        <span class="mt-2 font-medium">React</span>
-                    </div>
-                </div>
                 <!-- Python -->
                 <div class="skill-badge group">
                     <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
@@ -187,11 +146,25 @@
                         <span class="mt-2 font-medium">Django</span>
                     </div>
                 </div>
-                <!-- PHP -->
+                <!-- Flask -->
                 <div class="skill-badge group">
                     <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" class="w-16 h-16" alt="PHP">
-                        <span class="mt-2 font-medium">PHP</span>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="w-16 h-16" alt="Flask">
+                        <span class="mt-2 font-medium">Flask</span>
+                    </div>
+                </div>
+                <!-- JavaScript -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-16 h-16" alt="JavaScript">
+                        <span class="mt-2 font-medium">JavaScript</span>
+                    </div>
+                </div>
+                <!-- HTML -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-16 h-16" alt="HTML5">
+                        <span class="mt-2 font-medium">HTML5</span>
                     </div>
                 </div>
                 <!-- SQL -->
@@ -200,6 +173,40 @@
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-16 h-16" alt="SQL">
                         <span class="mt-2 font-medium">SQL</span>
                     </div>
+                </div>
+                <!-- AWS -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="w-16 h-16" alt="AWS">
+                        <span class="mt-2 font-medium">AWS</span>
+                    </div>
+                </div>
+                <!-- GitHub -->
+                <div class="skill-badge group">
+                    <div class="flex flex-col items-center p-4 rounded-xl bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-300 transform hover:scale-110">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-16 h-16 dark:invert" alt="GitHub">
+                        <span class="mt-2 font-medium">GitHub</span>
+                    </div>
+                </div>
+            </div>
+            <!-- AWS Services Tags -->
+            <div class="mt-6">
+                <p class="text-center text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">AWS Services</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">IAM</span>
+                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">S3</span>
+                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">Lambda</span>
+                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">SNS</span>
+                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">DynamoDB</span>
+                    <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">Boto3</span>
+                </div>
+            </div>
+            <!-- Certifications -->
+            <div class="mt-6">
+                <p class="text-center text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Certifications</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">🏅 SQL (Basic) – HackerRank (Jan 2026)</span>
+                    <span class="px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-medium">☁️ AWS Cloud Practitioner – Udemy (Sep 2025)</span>
                 </div>
             </div>
         </div>
@@ -218,15 +225,15 @@
                         <h3 class="text-xl font-semibold">Master of Computer Applications (MCA)</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400">Basaveshwar Engineering College, Vidyagiri Bagalkot</p>
-                    <p class="text-gray-500">2023 - 2025</p>
+                    <p class="text-gray-500">2023 – 2025 &nbsp;|&nbsp; CGPA: 7.80</p>
                 </div>
                 <div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">🎓</span>
                         <h3 class="text-xl font-semibold">Bachelor of Computer Applications (BCA)</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400">JSS STC ARTS AND COMM COLLEGE, BANAHATTI</p>
-                    <p class="text-gray-500">2020 - 2023</p>
+                    <p class="text-gray-600 dark:text-gray-400">STC Arts and Commerce College, Banahatti</p>
+                    <p class="text-gray-500">2020 – 2023 &nbsp;|&nbsp; CGPA: 6.60</p>
                 </div>
             </div>
         </div>
@@ -239,51 +246,46 @@
         </h2>
         <div class="bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg shadow-xl backdrop-blur-sm w-full max-w-6xl transform hover:scale-[1.02] transition-transform duration-300">
             <div class="space-y-8">
-                <!-- Current Internship -->
+                <!-- Lykops -->
                 <div>
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🚀</span>
-                        <h3 class="text-xl font-semibold">Software Development Engineering Intern (Current)</h3>
+                        <span class="text-2xl">☁️</span>
+                        <h3 class="text-xl font-semibold">AWS Trainee</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400">Yuga Yatra Retail (OPC) Pvt. Ltd.</p>
-                    <p class="text-gray-500 mb-4">July 2025 - September 2025 (2 months) | Remote</p>
-                    
-                    <p class="font-medium mb-2">🎯 What I'm Building:</p>
+                    <p class="text-gray-600 dark:text-gray-400">Lykops</p>
+                    <p class="text-gray-500 mb-4">July 2025 – September 2025 (2 months)</p>
+
+                    <p class="font-medium mb-2">🎯 What I Accomplished:</p>
                     <ul class="space-y-2 list-none ml-4 text-gray-600 dark:text-gray-400">
-                        <li>🎨 Crafting next-generation web and mobile interfaces using Cursor AI</li>
-                        <li>🔐 Developing secure authentication systems through Firebase Studio</li>
-                        <li>✨ Creating visually compelling designs with Canva Pro</li>
-                        <li>🛍️ Optimizing e-commerce workflows for Amazon and Flipkart sellers</li>
-                        <li>🌐 Leading freelance projects on Upwork</li>
-                        <li>📊 Managing team coordination via Google Workspace</li>
+                        <li>🪣 Built Streamlit tools using Python and Boto3 to manage AWS S3 buckets and objects</li>
+                        <li>⚙️ Implemented core operations: upload, download, list, and delete with error handling</li>
+                        <li>🖼️ Developed a photo gallery uploader using Amazon S3 for multi-image uploads</li>
+                        <li>🔗 Used pre-signed URLs for secure temporary file access</li>
                     </ul>
-                    
+
                     <div class="mt-4">
                         <p class="font-medium mb-2">🔥 Tech Stack:</p>
-                        <p class="text-gray-600 dark:text-gray-400">Cursor AI, Firebase Studio, Canva Pro, Google Workspace, E-commerce APIs</p>
+                        <p class="text-gray-600 dark:text-gray-400">Python, Boto3, Streamlit, AWS S3, Pre-signed URLs</p>
                     </div>
                 </div>
 
-                <!-- Previous Internship -->
+                <!-- Techciti -->
                 <div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">💻</span>
-                        <h3 class="text-xl font-semibold">Python Developer - Intern</h3>
+                        <h3 class="text-xl font-semibold">Python Developer – Intern</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400">Techciti Software Consulting Private Limited</p>
-                    <p class="text-gray-500 mb-4">December 2024 - January 2025 (2 months) | Bengaluru, Karnataka, India · Remote</p>
-                    
-                    <p class="italic text-gray-600 dark:text-gray-400 mb-4">🙏 Incredibly grateful for this foundational experience! Special thanks to the mentors and team at Techciti Software Consulting for guiding me through my first professional development journey.</p>
-                    
+                    <p class="text-gray-500 mb-4">December 2024 – January 2025 (2 months) | Bengaluru, Karnataka · Remote</p>
+
                     <p class="font-medium mb-2">🎯 What I Accomplished:</p>
                     <ul class="space-y-2 list-none ml-4 text-gray-600 dark:text-gray-400">
-                        <li>🏗️ Built a Cold Storage Management System using Python and Django</li>
-                        <li>💻 Created responsive UIs with HTML, CSS, and JavaScript</li>
-                        <li>🗄️ Designed database architecture with SQLite3</li>
-                        <li>🔧 Integrated Python libraries including Pillow and Widget-tweaks</li>
-                        <li>🤝 Collaborated with senior developers on production-ready solutions</li>
+                        <li>🏗️ Developed a Cold Storage Management System using Python and Django</li>
+                        <li>💻 Built responsive user interfaces with HTML, CSS, and JavaScript</li>
+                        <li>🗄️ Integrated SQLite3 for efficient data management</li>
+                        <li>🔧 Used Python libraries including Pillow and Widget-tweaks</li>
                     </ul>
-                    
+
                     <div class="mt-4">
                         <p class="font-medium mb-2">🔥 Tech Stack:</p>
                         <p class="text-gray-600 dark:text-gray-400">Python, Django, SQLite3, HTML/CSS/JavaScript, Pillow, Widget-tweaks</p>
@@ -299,70 +301,78 @@
             <span class="text-2xl">🚀</span>Featured Projects
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-            <!-- Crop Recommendation System -->
-            <article onclick="window.open('https://github.com/kkraddi111/Crop-recommendation-system', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
-                <div class="h-48 overflow-hidden">
-                    <img src="assets/images/project.png" alt="Crop Recommendation System" class="w-full h-full object-contain">
+
+            <!-- Elderly Care Platform -->
+            <article class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm">
+                <div class="h-48 overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
+                    <span class="text-6xl">🏥</span>
                 </div>
                 <div class="p-6">
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🌱</span>
-                        <h3 class="text-xl font-semibold">Crop Recommendation System</h3>
+                        <span class="text-2xl">👴</span>
+                        <h3 class="text-xl font-semibold">Elderly Care & Monitoring Platform</h3>
                     </div>
-                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400">
-                        <li>🌾 Python-based system for optimal crop recommendations</li>
-                        <li>🤖 Machine learning algorithms for accurate suggestions</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Python</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Django</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">SQLite</span>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Calorie Tracker -->
-            <article onclick="window.open('https://github.com/kkraddi111/calorie-tracker', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
-                <div class="h-48 overflow-hidden">
-                    <img src="assets/images/project.png" alt="Calorie Tracker" class="w-full h-full object-contain">
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🍽️</span>
-                        <h3 class="text-xl font-semibold">Calorie Tracker</h3>
-                    </div>
-                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400">
-                        <li>🥘 Specialized tracking for South-Indian dishes</li>
-                        <li>📊 Daily nutrition monitoring system</li>
-                        <li>👤 User profile management</li>
+                    <p class="text-xs text-orange-500 font-medium mb-2">Lykops Project</p>
+                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400 text-sm">
+                        <li>🌐 Web-based healthcare system for elderly patients using Streamlit</li>
+                        <li>📊 Patient & doctor dashboards for health tracking and prescriptions</li>
+                        <li>⚡ Automated monitoring with AWS Lambda and SNS</li>
+                        <li>🔒 Real-time communication via DynamoDB and S3</li>
                     </ul>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Python</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Django</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">SQLite3</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">Streamlit</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">AWS Lambda</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">DynamoDB</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">SNS</span>
                     </div>
                 </div>
             </article>
 
-            <!-- Quiz Management System -->
-            <article onclick="window.open('https://github.com/kkraddi111/Quiz-Management-System', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
-                <div class="h-48 overflow-hidden">
-                    <img src="assets/images/project.png" alt="Quiz Management System" class="w-full h-full object-contain">
+            <!-- Quizzy -->
+            <article onclick="window.open('https://github.com/kkraddi111', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
+                <div class="h-48 overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 flex items-center justify-center">
+                    <span class="text-6xl">🤖</span>
                 </div>
                 <div class="p-6">
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-2xl">📝</span>
-                        <h3 class="text-xl font-semibold">Quiz Management System</h3>
+                        <h3 class="text-xl font-semibold">Quizzy – AI Quiz Generator</h3>
                     </div>
-                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400">
-                        <li>📚 Comprehensive quiz management platform</li>
-                        <li>✍️ Quiz creation and assessment capabilities</li>
-                        <li>👨‍🏫 Multiple user role interfaces</li>
+                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400 text-sm">
+                        <li>🤖 Full-stack AI-powered quiz app using Flask and Gemini API</li>
+                        <li>📋 Automated quiz creation via Google Forms/Drive APIs</li>
+                        <li>🔐 OAuth 2.0 and secure token-based authentication</li>
+                        <li>🌍 Dynamic multilingual quiz generation</li>
                     </ul>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">PHP</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">MySQL</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">JavaScript</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">Python</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">Flask</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">Gemini API</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">Google APIs</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Cold Storage Management -->
+            <article onclick="window.open('https://github.com/kkraddi111', '_blank')" class="bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 backdrop-blur-sm cursor-pointer">
+                <div class="h-48 overflow-hidden bg-gradient-to-br from-cyan-100 to-cyan-200 dark:from-cyan-900 dark:to-cyan-800 flex items-center justify-center">
+                    <span class="text-6xl">🏭</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-2xl">❄️</span>
+                        <h3 class="text-xl font-semibold">Cold Storage Management System</h3>
+                    </div>
+                    <ul class="mb-4 space-y-1 text-gray-600 dark:text-gray-400 text-sm">
+                        <li>📦 Digitized inventory tracking and warehouse operations</li>
+                        <li>🗂️ Modules for products, batches, storage, and transactions</li>
+                        <li>👤 Role-based workflows and data validation</li>
+                        <li>📊 Dashboards for stock levels and transaction history</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">Python</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">Django</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">SQLite3</span>
                     </div>
                 </div>
             </article>
@@ -393,6 +403,10 @@
                     <a href="mailto:ksraddi@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-orange-500">ksraddi@gmail.com</a>
                 </div>
                 <div class="flex items-center gap-3">
+                    <span class="text-2xl">📍</span>
+                    <p class="text-gray-600 dark:text-gray-400">Jamkhandi, Karnataka, India</p>
+                </div>
+                <div class="flex items-center gap-3">
                     <span class="text-2xl">🔗</span>
                     <div class="flex gap-4">
                         <a href="https://github.com/kkraddi111" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-orange-500 inline-flex items-center gap-2">
@@ -408,24 +422,24 @@
             </div>
         </div>
     </section>
-</main>
+    </main>
 
-<!-- Footer -->
-<footer class="container mx-auto px-6 py-8 mt-16 border-t border-gray-200 dark:border-gray-800">
-    <div class="flex justify-between items-center">
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-            © 2025 Kiran Raddi. All rights reserved.
-        </p>
-    </div>
-</footer>
+    <!-- Footer -->
+    <footer class="container mx-auto px-6 py-8 mt-16 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex justify-between items-center">
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+                © 2026 Kiran Raddi. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
-<!-- Back to Top Button -->
-<button id="back-to-top" class="back-to-top hidden" aria-label="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-    </svg>
-</button>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top hidden" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 </body>
 </html>
